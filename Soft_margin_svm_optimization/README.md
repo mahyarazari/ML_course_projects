@@ -27,7 +27,7 @@ Python 3.7+ is recommended.
 
 1.  Place `Social_Network_Ads.csv` in the working directory (or update
     its path in the notebook).\
-2.  Open `ml_hw3_q9.ipynb` in Jupyter Notebook or Google Colab.\
+2.  Open `soft_margin_optimization.ipynb` in Jupyter Notebook or Google Colab.\
 3.  Run all cells sequentially.
 
 > **Note:** QP solving requires `cvxpy` and a compatible solver (e.g.,
