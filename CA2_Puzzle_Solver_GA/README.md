@@ -1,4 +1,4 @@
-# ML_HW2_Q5: Jigsaw Puzzle Solver
+# Jigsaw Puzzle Solver
 
 ## Overview
 This repository contains a Jupyter Notebook that implements a computational approach to solving square-piece jigsaw puzzles.
