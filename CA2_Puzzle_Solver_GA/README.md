@@ -1,30 +1,53 @@
-# Jigsaw Puzzle Solver
+🧩 Genetic Algorithm Puzzle Solver
 
-## Overview
-This repository contains a Jupyter Notebook that implements a computational approach to solving square-piece jigsaw puzzles.
+This project implements a Genetic Algorithm (GA)–based method for solving a shuffled image puzzle. The main idea is to treat each possible puzzle arrangement as a chromosome and use evolutionary techniques to search for the correct configuration.
 
-The project focuses on defining a robust **local fit score** and using a search strategy (implemented within the notebook) to reconstruct the original image from scrambled pieces.
+🚀 Overview
 
-## Core Methodology
-The quality of the fit between two adjacent puzzle pieces is quantified using the **Local Fit Score**. This score is calculated as the **Sum of Squared Differences (SSD)** of the pixel values along the shared edge.
+The pipeline begins by converting an input image into a set of shuffled puzzle pieces. Each piece has four edges, and the goal is to reconstruct the original image by placing all pieces in their correct positions.
 
-$$
-\text{SSD} = \sum_{p \in \text{Edge}} (I_1(p) - I_2(p))^2
-$$
-The objective is to minimize the total SSD across all adjacent pairs in the final assembly.
+To guide the GA, the project defines a fitness function based on the edge compatibility between adjacent pieces. The better the edges match, the higher the fitness score of the chromosome. Over successive generations, the algorithm attempts to improve the population’s overall fitness.
 
-## File Structure
-* `jigsaw_puzzle_GA.ipynb`: The main Jupyter Notebook containing all the setup, implementation of the fit score, search algorithm, and analysis.
+🧬 Genetic Algorithm Design
 
-## Requirements
-The project requires the following Python libraries:
-* `Python 3.x`
-* `numpy`
-* `Pillow (PIL)`
-* `matplotlib`
-* `random`
-* `itertools`
+The evolutionary process follows the standard GA workflow:
 
-You can install the necessary packages using pip:
-```bash
-pip install numpy Pillow matplotlib
+Initial Population
+A set of random puzzle arrangements is generated as the initial population.
+
+Fitness Evaluation
+Each chromosome is scored according to the alignment quality of neighboring piece edges.
+
+Selection
+The best-performing chromosomes serve as parents for the next generation.
+
+Crossover
+Parent chromosomes are recombined to produce new offspring with mixed characteristics.
+
+Mutation
+Random swaps or modifications are applied to introduce diversity and prevent premature convergence.
+
+Next Generation
+A new population is formed, and the cycle repeats.
+
+At the end of the process, the algorithm selects the chromosome with the highest fitness score from the final generation as the predicted puzzle solution.
+
+⚠ Current Challenges
+
+During development, the algorithm frequently became stuck in local minima. Even after applying Bayesian Optimization to tune hyperparameters (population size, mutation rate, crossover probability, etc.), the GA often plateaued after only one or two generations.
+
+Addressing this issue—either through improved fitness modeling, diversity-preserving operators, or alternative search strategies—is the main direction for future work.
+
+🔧 Future Improvements
+
+Planned enhancements include:
+
+More robust mutation strategies
+
+Adaptive or self-tuning evolutionary parameters
+
+Hybrid optimization (GA + simulated annealing / tabu search)
+
+Improved compatibility metrics for puzzle edges
+
+Further exploration of Bayesian Optimization and alternative meta-heuristics
