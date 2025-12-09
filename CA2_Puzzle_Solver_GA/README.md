@@ -1,53 +1,53 @@
-🧩 Genetic Algorithm Puzzle Solver
+# 🧩 Genetic Algorithm Puzzle Solver
 
-This project implements a Genetic Algorithm (GA)–based method for solving a shuffled image puzzle. The main idea is to treat each possible puzzle arrangement as a chromosome and use evolutionary techniques to search for the correct configuration.
+This project implements a Genetic Algorithm (GA)–based approach for solving a shuffled image puzzle. Each possible puzzle arrangement is represented as a chromosome, and evolutionary techniques are used to search for the correct configuration.
 
-🚀 Overview
+---
 
-The pipeline begins by converting an input image into a set of shuffled puzzle pieces. Each piece has four edges, and the goal is to reconstruct the original image by placing all pieces in their correct positions.
+## 🚀 Overview
 
-To guide the GA, the project defines a fitness function based on the edge compatibility between adjacent pieces. The better the edges match, the higher the fitness score of the chromosome. Over successive generations, the algorithm attempts to improve the population’s overall fitness.
+The pipeline begins by splitting an input image into a set of shuffled puzzle pieces. Each piece has four edges, and the goal is to reconstruct the original image by placing all pieces in their correct positions.
 
-🧬 Genetic Algorithm Design
+To guide the GA, the project defines a fitness function based on the edge compatibility between neighboring pieces. The better two edges align, the higher the score contributed to the chromosome. Over generations, the algorithm attempts to improve the overall fitness of the population.
 
-The evolutionary process follows the standard GA workflow:
+---
 
-Initial Population
-A set of random puzzle arrangements is generated as the initial population.
+## 🧬 Genetic Algorithm Workflow
 
-Fitness Evaluation
-Each chromosome is scored according to the alignment quality of neighboring piece edges.
+### 1. Initial Population  
+Random puzzle configurations are generated to form the first population.
 
-Selection
-The best-performing chromosomes serve as parents for the next generation.
+### 2. Fitness Evaluation  
+Each chromosome is scored using an edge-matching–based fitness function.
 
-Crossover
-Parent chromosomes are recombined to produce new offspring with mixed characteristics.
+### 3. Selection  
+High-fitness chromosomes are chosen as parents for the next generation.
 
-Mutation
-Random swaps or modifications are applied to introduce diversity and prevent premature convergence.
+### 4. Crossover  
+Parents exchange segments to produce new offspring.
 
-Next Generation
-A new population is formed, and the cycle repeats.
+### 5. Mutation  
+Random modifications (e.g., swapping puzzle pieces) introduce diversity into the population.
 
-At the end of the process, the algorithm selects the chromosome with the highest fitness score from the final generation as the predicted puzzle solution.
+### 6. Next Generation  
+A new population is formed, and the evolutionary cycle continues.
 
-⚠ Current Challenges
+At the end of the process, the chromosome with the **highest fitness** in the final generation is selected as the predicted solution to the puzzle.
 
-During development, the algorithm frequently became stuck in local minima. Even after applying Bayesian Optimization to tune hyperparameters (population size, mutation rate, crossover probability, etc.), the GA often plateaued after only one or two generations.
+---
 
-Addressing this issue—either through improved fitness modeling, diversity-preserving operators, or alternative search strategies—is the main direction for future work.
+## ⚠ Current Challenges
 
-🔧 Future Improvements
+During experimentation, the GA frequently became trapped in **local minima**.  
+Even after applying **Bayesian Optimization** to tune hyperparameters such as mutation rate, crossover probability, and population size, the model often plateaued after only one or two generations.  
 
-Planned enhancements include:
+Improving the algorithm’s ability to escape local minima remains an open challenge and a key direction for future development.
 
-More robust mutation strategies
+---
 
-Adaptive or self-tuning evolutionary parameters
+## 📌 Project Status
 
-Hybrid optimization (GA + simulated annealing / tabu search)
+This implementation provides a functional GA-based solver but still requires improvements to reliably avoid local minima and achieve consistent puzzle reconstruction.
 
-Improved compatibility metrics for puzzle edges
+---
 
-Further exploration of Bayesian Optimization and alternative meta-heuristics
